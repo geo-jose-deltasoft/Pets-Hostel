@@ -1,6 +1,6 @@
 import React from 'react';
 import TopBar from '../components/layouts/TopBar';
-//import './assets/styles/About.css';
+import '../assets/styles/About.css';
 
 const About = () => {
   return(
