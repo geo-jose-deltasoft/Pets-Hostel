@@ -1,0 +1,29 @@
+.topbar {
+  overflow: hidden;
+}
+
+.topbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.topbar li {
+  float: left;
+}
+
+.topbar li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.topbar li a:hover {
+  color: blue;
+}
+
+.topbar li a.active {
+  border-bottom: 2px solid blue;
+}
