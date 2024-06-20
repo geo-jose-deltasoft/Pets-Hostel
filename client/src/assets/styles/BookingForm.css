@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
 
-.body{
+.body {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -15,8 +15,8 @@
   padding: 20px;
 }
 
-.container{
-  position:relative;
+.container {
+  position: relative;
   max-width: 700px;
   width: 100%;
   background: #fff;
@@ -25,23 +25,23 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-.container-header{
+.container-header {
   font-size: 1.5rem;
   font-weight: bold;
   color: #333;
   text-align: center;
 }
 
-.container .form{
+.container .form {
   margin-top: 30px;
 }
 
-.form .input-box{
+.form .input-box {
   width: 100%;
   margin-top: 20px;
 }
 
-.input-box label{
+.input-box label {
   display: block;
   margin-bottom: 5px;
   color: #333;
@@ -90,17 +90,17 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.form .column{
+.form .column {
   display: flex;
   column-gap: 15px;
 }
 
 /* Contact Code */
 .contact-box {
-  margin-top: 20px
+  margin-top: 20px;
 }
 
-.contact-box h3{
+.contact-box h3 {
   text-align: left;
   color: #333;
   font-size: 1rem;
@@ -121,8 +121,8 @@ input[type="number"] {
   cursor: pointer;
 }
 
-.contact input, 
-.contact label{
+.contact input,
+.contact label {
   cursor: pointer;
 }
 
@@ -142,15 +142,37 @@ input[type="number"] {
 }
 
 .date-picker-input {
-  padding-left: 40px; /* Adjust to make space for the icon */
+  padding-left: 40px; 
+}
+
+/* Pet Age */
+.date-picker-container2 {
+  position: relative;
+  width: 50%;
+}
+
+.date-picker-input2 {
+  padding-left: 10px; 
+}
+
+/* Pet Food Habit */
+.textarea-input {
+  width: 100%;
+  height: 100px;
+  resize: vertical;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-top: 8px;
 }
 
 /* Service Code */
 .service-box {
-  margin-top: 20px
+  margin-top: 20px;
 }
 
-.service-box h3{
+.service-box h3 {
   text-align: left;
   color: #333;
   font-size: 1rem;
@@ -171,12 +193,100 @@ input[type="number"] {
   cursor: pointer;
 }
 
-.service input, 
-.service label{
+.service input,
+.service label {
   cursor: pointer;
 }
 
-/*Responsive*/
+/* Toggle Switch */
+.toggle-container {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-label {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.toggle-label input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.toggle:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.toggle-label input:checked + .toggle {
+  background-color: #a625ec;
+}
+
+.toggle-label input:checked + .toggle:before {
+  transform: translateX(26px);
+}
+
+.toggle-text {
+  margin-left: 10px;
+}
+
+/* File Upload */
+.upload-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.upload-text {
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  color: #333;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.upload-button {
+  padding: 8px 16px;
+  background-color: #a625ec;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.selected-file {
+  display: flex;
+  align-items: center;
+}
+
+.selected-file span {
+  margin-right: 10px;
+}
+
+/* Responsive */
 @media screen and (max-width: 500px) {
   .form .column {
     flex-wrap: wrap;

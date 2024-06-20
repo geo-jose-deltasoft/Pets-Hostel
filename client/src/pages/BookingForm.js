@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import DatePicker from 'react-datepicker';
 import { FaCalendarAlt } from 'react-icons/fa';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -7,6 +7,46 @@ import '../assets/styles/BookingForm.css';
 const BookingForm = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const [petBirthday, setPetBirthday] = useState(null);
+  const [petAge, setPetAge] = useState('');
+  const [vaccinationStatus, setVaccinationStatus] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [certificateUploaded, setCertificateUploaded] = useState(false);
+
+  useEffect(() => {
+    if (petBirthday) {
+      const age = calculateAge(petBirthday);
+      setPetAge(age);
+    }
+  }, [petBirthday]);
+
+  const calculateAge = (birthday) => {
+    const today = new Date();
+    const birthDate = new Date(birthday);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  };
+
+  const handleToggle = () => {
+    setVaccinationStatus(!vaccinationStatus);
+  };
+
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
+
+  const handleUpload = () => {
+    // Logic to upload the certificate
+    setCertificateUploaded(true);
+  };
+
+  const handleRemove = () => {
+    setSelectedFile(null);
+  };
 
   return (
     <div className='body'>
@@ -130,6 +170,74 @@ const BookingForm = () => {
 
           </div>
         </div>
+
+        <div className='input-box'>
+            <label>Pet Birthday</label>
+            <div className='date-picker-container2'>
+              <FaCalendarAlt className='calendar-icon' />
+              <DatePicker
+                selected={petBirthday}
+                onChange={(date) => setPetBirthday(date)}
+                placeholderText="Select Pet Birthday"
+                className='date-picker-input2'
+              />
+            </div>
+          </div>
+
+          <div className='input-box'>
+            <label>Pet Age</label>
+            <input type='text' value={petAge} placeholder='Pet Age' readOnly />
+          </div>
+
+          <div className='input-box'>
+            <label>Pet Food Habit</label>
+            <textarea placeholder='Describe your pets food habits' className='textarea-input'></textarea>
+          </div>
+
+          <div className='input-box'>
+            <label>Pet Vaccination Status</label>
+            <div className='toggle-container'>
+              <label className='toggle-label'>
+                <input
+                  type='checkbox'
+                  checked={vaccinationStatus}
+                  onChange={handleToggle}
+                />
+                <span className='toggle'></span>
+              </label>
+              <span className='toggle-text'>{vaccinationStatus ? 'Vaccinated' : 'Not Vaccinated'}</span>
+            </div>
+          </div>
+
+          {vaccinationStatus && (
+            <div className='input-box'>
+              <label>Upload Vaccination Certificate</label>
+              <div className='upload-container'>
+                {selectedFile ? (
+                  <div className='selected-file'>
+                    <span>{selectedFile.name}</span>
+                    <button onClick={handleRemove}>Remove</button>
+                  </div>
+                ) : (
+                  <label htmlFor='file-upload' className='upload-text'>
+                    Choose File
+                  </label>
+                )}
+                <input
+                  type='file'
+                  id='file-upload'
+                  onChange={handleFileChange}
+                  style={{ display: 'none' }}
+                  disabled={!vaccinationStatus || certificateUploaded}
+                />
+                {!certificateUploaded && (
+                  <button className='upload-button' onClick={handleUpload}>
+                    Upload Certificate
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
 
       </form>
     </section>
