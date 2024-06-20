@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.body{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container{
+  position:relative;
+  max-width: 700px;
+  width: 100%;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.container-header{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+.container .form{
+  margin-top: 30px;
+}
+
+.form .input-box{
+  width: 100%;
+  margin-top: 20px;
+}
+
+.input-box label{
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  text-align: left;
+}
+
+.form .input-box input,
+.form .input-box select {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  color: #707070;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 15px;
+  appearance: none;
+}
+
+.form .input-box select {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  color: #707070;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 15px;
+  appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg fill="%23000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+  background-size: 12px;
+}
+
+/* Remove arrows from number inputs */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.form .column{
+  display: flex;
+  column-gap: 15px;
+}
+
+/* Contact Code */
+.contact-box {
+  margin-top: 20px
+}
+
+.contact-box h3{
+  text-align: left;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.contact-option {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.contact input, 
+.contact label{
+  cursor: pointer;
+}
+
+/* Booking Date */
+.date-picker-container {
+  position: relative;
+  width: 100%;
+}
+
+.calendar-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #707070;
+}
+
+.date-picker-input {
+  padding-left: 40px; /* Adjust to make space for the icon */
+}
+
+/* Service Code */
+.service-box {
+  margin-top: 20px
+}
+
+.service-box h3{
+  text-align: left;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.service-option {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.service {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.service input, 
+.service label{
+  cursor: pointer;
+}
+
+/*Responsive*/
+@media screen and (max-width: 500px) {
+  .form .column {
+    flex-wrap: wrap;
+  }
+}

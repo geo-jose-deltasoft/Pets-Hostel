@@ -9,6 +9,7 @@ const TopBar = () => {
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const [showSignupPopup, setShowSignupPopup] = useState(false);
 
+  // eslint-disable-next-line 
   const { pathname } = useLocation();
 
   const openLoginPopup = () => {
