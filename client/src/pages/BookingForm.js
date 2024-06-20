@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import DatePicker from 'react-datepicker';
-import { FaCalendarAlt } from 'react-icons/fa';
+import { FaCalendarAlt} from 'react-icons/fa';
 import 'react-datepicker/dist/react-datepicker.css';
 import '../assets/styles/BookingForm.css';
 
@@ -12,6 +12,8 @@ const BookingForm = () => {
   const [vaccinationStatus, setVaccinationStatus] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const [certificateUploaded, setCertificateUploaded] = useState(false);
+  const [application, setApplicationDate] = useState(null);
+  const [signature, setSignature] = useState('');
 
   useEffect(() => {
     if (petBirthday) {
@@ -40,12 +42,19 @@ const BookingForm = () => {
   };
 
   const handleUpload = () => {
-    // Logic to upload the certificate
     setCertificateUploaded(true);
   };
 
   const handleRemove = () => {
     setSelectedFile(null);
+  };
+
+  const handleSignatureChange = (event) => {
+    setSignature(event.target.value);
+  };
+
+  const handleClear = () => {
+    setSignature('');
   };
 
   return (
@@ -54,6 +63,7 @@ const BookingForm = () => {
       <header className='container-header'>Pets Hostel Service Booking Form</header>
       <form action="#" className='form'>
 
+      
       <div className='input-box'>
             <label>Name of Owner</label>
             <div className='column'>
@@ -182,7 +192,7 @@ const BookingForm = () => {
                 className='date-picker-input2'
               />
             </div>
-          </div>
+        </div>
 
           <div className='input-box'>
             <label>Pet Age</label>
@@ -238,6 +248,40 @@ const BookingForm = () => {
               </div>
             </div>
           )}
+
+          <div className='input-box'>
+            <label>Application Date</label>
+            <div className='date-picker-container2'>
+              <FaCalendarAlt className='calendar-icon' />
+              <DatePicker
+                selected={application}
+                onChange={(date) => setApplicationDate(date)}
+                placeholderText="Select Application Date"
+                className='date-picker-input2'
+              />
+            </div>
+          </div>
+
+          <div className='agreement'>
+            <p>By Signing this form, I hereby acknowledge that I am atleast 18 years old and the information given is true.</p>
+          </div>
+
+          <div className='input-box'>
+            <label>Signature</label>
+            <div className="signature-container">
+              <textarea
+                placeholder="✍ Sign here..."
+                className='signature-input'
+                value={signature}
+                onChange={handleSignatureChange}
+              />
+              <button className="clear-button" onClick={handleClear}>Clear</button>
+            </div>
+          </div>
+
+          <div className="footer-line"></div>
+
+          <button className="submit-button">Submit</button>
 
       </form>
     </section>
