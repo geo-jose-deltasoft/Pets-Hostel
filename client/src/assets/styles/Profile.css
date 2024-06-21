@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.profile-container {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-history-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 5px 10px;
+  border-color: #a625ec;
+  border-radius: 5px;
+  font-size: 13px;
+  background-color: #fff;
+  color: #a625ec;
+  cursor: pointer;
+}
+
+.input-group {
+  margin-top: 20px;
+}
+
+.input-group label {
+  font-weight: normal;
+}
+
+.input-group label.personal-details,
+.input-group label.pet-details {
+  font-weight: bold;
+  border-bottom: 2px solid #333; 
+  margin-bottom: 10px; 
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.input-group textarea {
+  height: 100px;
+}
+
+.input-group input:read-only,
+.input-group textarea:read-only {
+  background-color: #f1f1f1;
+  color: #666;
+}
+
+.column {
+  display: flex;
+  column-gap: 15px;
+}
+
+/* Service Code */
+.service-box {
+  margin-top: 20px;
+}
+
+.service-box h3 {
+  text-align: left;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.service-option {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.service {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.service input,
+.service label {
+  cursor: pointer;
+}
+
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.save-button,
+.edit-button {
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.save-button {
+  background-color: rgb(0, 139, 79);
+  color: #fff;
+}
+
+.edit-button {
+  background-color: #a625ec;
+  color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+  .profile-container {
+    padding: 10px;
+  }
+
+  .input-group input,
+  .input-group textarea,
+  .input-group select {
+    font-size: 14px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button-group button {
+    margin-top: 10px;
+  }
+}

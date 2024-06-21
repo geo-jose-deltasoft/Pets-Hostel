@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
@@ -9,14 +9,21 @@ import Profile from './pages/Profile';
 import './assets/styles/App.css';
 
 const App = () => {
+  const handleSaveProfile = (profileData) => {
+    console.log('Saving profile:', profileData);
+  };
+
   return (
     <div className='app'>
       <Routes>
         <Route path="/*" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact/>} />
-        <Route path="/booking-form" element={<BookingForm/>} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/booking-form" element={<BookingForm />} />
+        <Route
+          path="/profile"
+          element={<Profile onSave={handleSaveProfile} />}
+        />
       </Routes>
     </div>
   );
