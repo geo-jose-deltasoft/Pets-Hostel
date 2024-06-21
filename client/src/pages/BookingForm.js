@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
-import { FaCalendarAlt} from 'react-icons/fa';
+import { FaCalendarAlt, FaArrowLeft} from 'react-icons/fa';
 import 'react-datepicker/dist/react-datepicker.css';
 import '../assets/styles/BookingForm.css';
 
 const BookingForm = () => {
+  const navigate = useNavigate();
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [petBirthday, setPetBirthday] = useState(null);
@@ -57,18 +59,25 @@ const BookingForm = () => {
     setSignature('');
   };
 
+  const handleBack = () => {
+    navigate('/home');
+  };
+
   return (
     <div className='body'>
     <section className='container'>
-      <header className='container-header'>Pets Hostel Service Booking Form</header>
+      <header className='container-header'>
+        <FaArrowLeft className='back-icon' onClick={handleBack} />
+        Pets Hostel Service Booking Form
+      </header>
       <form action="#" className='form'>
 
       
       <div className='input-box'>
             <label>Name of Owner</label>
             <div className='column'>
-              <input type='text' placeholder='First Name' required/>
-              <input type='text' placeholder='Last Name' required/>
+              <input type='text' placeholder='First Name' /*required*//>
+              <input type='text' placeholder='Last Name' /*required*//>
             </div>
       </div>
 
@@ -76,29 +85,29 @@ const BookingForm = () => {
         <div className="column">
           <div className='input-box'>
             <label>Mobile Number</label>
-            <input type='number' placeholder='Enter Mobile Number' required></input>
+            <input type='number' placeholder='Enter Mobile Number' /*required*/></input>
           </div>
 
           <div className='input-box'>
             <label>Date of Birth</label>
-            <input type='date' placeholder='DOB' required></input>
+            <input type='date' placeholder='DOB' /*required*/></input>
           </div>
         </div>
 
         <div className='input-box'>
           <label>Email</label>
-          <input type='email' placeholder='example@example.com' required></input>
+          <input type='email' placeholder='example@example.com' /*required*/></input>
         </div>
 
         <div className='input-box'>
             <label>Address</label>
-            <input type='text' placeholder='Street Address' required></input>
-            <input type='text' placeholder='Street Address Line 2' required></input>
+            <input type='text' placeholder='Street Address' /*required*/></input>
+            <input type='text' placeholder='Street Address Line 2' /*required*/></input>
             <div className='column'>
-              <input type='text' placeholder='City' required></input>
-              <input type='text' placeholder='State/Province' required></input>
+              <input type='text' placeholder='City' /*required*/></input>
+              <input type='text' placeholder='State/Province' /*required*/></input>
             </div>
-            <input type='text' placeholder='Postal/Zip Code' required></input>
+            <input type='text' placeholder='Postal/Zip Code' /*required*/></input>
           </div>
 
         <div class="contact-box">
@@ -120,7 +129,7 @@ const BookingForm = () => {
 
         <div className='input-box'>
           <label>Pet Name</label>
-          <input type='text' placeholder='Enter Pet Name' required></input>
+          <input type='text' placeholder='Enter Pet Name' /*required*/></input>
         </div>
 
         <div className='input-box'>
@@ -281,7 +290,9 @@ const BookingForm = () => {
 
           <div className="footer-line"></div>
 
-          <button className="submit-button">Submit</button>
+          <Link to='/profile'>
+            <button className="submit-button">Submit</button>
+          </Link>
 
       </form>
     </section>
