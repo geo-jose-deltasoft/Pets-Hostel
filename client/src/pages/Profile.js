@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../assets/styles/Profile.css';
 
 const Profile = ({ onSave }) => {
@@ -38,8 +39,10 @@ const Profile = ({ onSave }) => {
     <div className="body">
       <div className='profile-container'>
         <header className='profile-header'>Profile</header>
-      
-        <button className='booking-history-button'>Go to Booking History</button>
+        
+        <Link to="/booking-history">
+          <button className='booking-history-button'>Booking History</button>
+        </Link>
 
         <form className='profile-form'>
           <div className='input-group'>

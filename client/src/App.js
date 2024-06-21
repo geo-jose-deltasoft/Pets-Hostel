@@ -6,6 +6,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import BookingForm from './pages/BookingForm';
 import Profile from './pages/Profile';
+import BookingTab from './pages/BookingTab';
 import './assets/styles/App.css';
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
           path="/profile"
           element={<Profile onSave={handleSaveProfile} />}
         />
+        <Route path="/booking-history" element={<BookingTab/>} />
       </Routes>
     </div>
   );
