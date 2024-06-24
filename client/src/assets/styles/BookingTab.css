@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.body-booking-table {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.body-booking-table h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+
+.body-booking-table p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.create-booking-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 500;
+  background-color: #a625ec;
+  color: #fff;
+  cursor: pointer;
+}
+
+.create-booking-btn:hover {
+  background-color: #c457ff ;
+}
+
+
+.booking-table-container {
+  max-width: 1000px; 
+  margin: 0 auto; 
+  overflow-x: auto; 
+}
+
+.booking-table {
+  width: 100%;
+}
+
+.booking-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.booking-table th,
+.booking-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.booking-table th {
+  background-color: #f2f2f2;
+}
+
+.booking-table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9; /* Background color for odd rows */
+}
+
+.booking-table tbody tr:nth-child(even) {
+  background-color: #fff; /* Background color for even rows */
+}
+
+.info-icon {
+  color: #007bff; /* Change color of info icon */
+  cursor: pointer;
+}
+
+.info-icon:hover {
+  color: #717171; /* Change color on hover */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .body h2 {
+    font-size: 20px;
+  }
+
+  .body p {
+    font-size: 14px;
+  }
+
+  .booking-table th,
+  .booking-table td {
+    font-size: 12px;
+    padding: 6px;
+  }
+}

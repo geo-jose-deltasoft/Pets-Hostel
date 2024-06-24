@@ -152,8 +152,18 @@ const Profile = ({ onSave }) => {
               )}
             </div>
 
+            <div className='input-group'>
+              <label>Amount Paid</label>
+              <input
+                type='text'
+                value={amountPaid}
+                onChange={(e) => setAmountPaid(e.target.value)}
+                readOnly={!isEditMode}
+              />
+            </div>
+
             <div className="service-box">
-              <h3>Service you want to Opt for</h3>
+              <h3>Service Opted</h3>
               <div className="service-option">
                 <div className="service">
                   <input
@@ -214,6 +224,7 @@ const Profile = ({ onSave }) => {
                 </div>
               </div>
             </div>
+
 
           <div className='button-group'>
             {isEditMode ? (

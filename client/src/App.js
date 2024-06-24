@@ -8,6 +8,7 @@ import BookingForm from './pages/BookingForm';
 import Profile from './pages/Profile';
 import BookingTab from './pages/BookingTab';
 import './assets/styles/App.css';
+import StaffList from './pages/StaffList';
 
 const App = () => {
   const handleSaveProfile = (profileData) => {
@@ -26,6 +27,8 @@ const App = () => {
           element={<Profile onSave={handleSaveProfile} />}
         />
         <Route path="/booking-history" element={<BookingTab/>} />
+
+        <Route path="/*" element={<StaffList />} />
       </Routes>
     </div>
   );
