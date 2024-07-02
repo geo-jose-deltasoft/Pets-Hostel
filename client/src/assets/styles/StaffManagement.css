@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.staff-management-container {
+  display: flex;
+}
+
+.staff-management-content {
+  margin-left: 250px;
+  padding: 20px;
+  width: calc(100% - 250px); 
+}
+
+.staff-management-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.staff-management-header h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.add-staff-btn {
+  background-color: #a625ec;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-staff-btn:hover {
+  background-color: #dd9dff;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-bar input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.search-bar button {
+  background-color: #a625ec;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: #dd9dff;
+}
+
+.staff-table-container {
+  overflow-x: auto;
+  text-align: center;
+}
+
+.staff-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.staff-table-container th,
+.staff-table-container td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.staff-table-container th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.staff-table-container td button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.staff-table-container td button:hover {
+  color: #a625ec;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px; 
+    padding: 15px;
+  }
+
+  .sidebar-header {
+    font-size: 20px; 
+    margin-bottom: 15px;
+  }
+
+  .sidebar a {
+    font-size: 14px; 
+  }
+}
+
+/* Staff Management Page Styles */
+.staff-management-container {
+  display: flex;
+}
+
+.staff-management-content {
+  margin-left: 250px;
+  padding: 20px;
+  width: calc(100% - 250px); 
+}
+
+.staff-management-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.staff-management-header h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.add-staff-btn {
+  background-color: #a625ec;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-staff-btn:hover {
+  background-color: #dd9dff;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-bar input[type="text"] {
+  width: 100%; /* Adjusted width for mobile */
+  max-width: 300px; /* Added max-width for larger screens */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.search-bar button {
+  background-color: #a625ec;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: #dd9dff;
+}
+
+.staff-table-container {
+  overflow-x: auto;
+  text-align: center;
+}
+
+.staff-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.staff-table-container th,
+.staff-table-container td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.staff-table-container th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.staff-table-container td button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.staff-table-container td button:hover {
+  color: #a625ec;
+}

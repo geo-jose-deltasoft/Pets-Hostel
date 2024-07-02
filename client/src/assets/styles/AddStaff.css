@@ -1,0 +1,99 @@
+.dialogue-box {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.dialogue-box.open {
+  display: block;
+}
+
+.dialogue-box-content {
+  background-color: #fefefe;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 8px;
+}
+
+.dialogue-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.dialogue-box-header h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.close-dialogue-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #aaa;
+}
+
+.close-dialogue-btn:hover,
+.close-dialogue-btn:focus {
+  color: #333;
+}
+
+.dialogue-box-body {
+  margin-bottom: 20px;
+}
+
+.dialogue-box-body label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.dialogue-box-body input[type="text"],
+.dialogue-box-body input[type="password"],
+.dialogue-box-body textarea {
+  width: calc(100% - 20px);
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.dialogue-box-body textarea {
+  height: 80px;
+}
+
+.dialogue-box-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cancel-btn,
+.save-btn {
+  background-color: #a625ec;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.cancel-btn:hover,
+.save-btn:hover {
+  background-color: #dd9dff;
+}

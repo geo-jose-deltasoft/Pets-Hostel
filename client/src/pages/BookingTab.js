@@ -14,12 +14,7 @@ const BookingTab = () => {
       { SNo: 3, applicationDate: '2024-06-23', bookingDate: '2024-06-24', serviceOpted: 'Day Care', remarks: 'Consectetur adipiscing elit', moreInfo: 'More booking details...' },
     ];
     setBookings(dummyBookings);
-
-    // Fetch additional data from API
-    // fetch('your-api-endpoint')
-    //   .then(response => response.json())
-    //   .then(data => setBookings(data))
-    //   .catch(error => console.error('Error fetching data:', error));
+    
   }, []);
 
   return (

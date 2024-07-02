@@ -40,6 +40,8 @@ const Profile = ({ onSave }) => {
       <div className='profile-container'>
         <header className='profile-header'>Profile</header>
         
+        {/* Booking History (Button) */}
+
         <Link to="/booking-history">
           <button className='booking-history-button'>Booking History</button>
         </Link>
@@ -48,6 +50,8 @@ const Profile = ({ onSave }) => {
           <div className='input-group'>
             <label className='personal-details'>PERSONAL DETAILS</label>
           </div>
+
+          {/* Profile Name + DOB */}
 
           <div className='column'>
             <div className='input-group'>
@@ -72,6 +76,8 @@ const Profile = ({ onSave }) => {
 
           </div>
 
+          {/* Mobile Number + Email */}
+
           <div className='column'>
             <div className='input-group'>
               <label>Mobile Number</label>
@@ -94,6 +100,8 @@ const Profile = ({ onSave }) => {
             </div>
           </div>
 
+          {/* Customer Address (Text Area) */}
+
           <div className='input-group'>
             <label>Customer Address</label>
             <textarea
@@ -103,6 +111,7 @@ const Profile = ({ onSave }) => {
             />
           </div>
 
+          {/* Pet Name +Pet DOB */}
 
           <div className='input-group'>
             <label className='pet-details'>PET DETAILS</label>
@@ -130,6 +139,7 @@ const Profile = ({ onSave }) => {
             </div>
           </div>
 
+            {/* Pet Type (Select Button) */}
 
             <div className='input-group'>
               <label>Pet Type</label>
@@ -152,6 +162,8 @@ const Profile = ({ onSave }) => {
               )}
             </div>
 
+            {/* Amount */}
+
             <div className='input-group'>
               <label>Amount Paid</label>
               <input
@@ -161,6 +173,8 @@ const Profile = ({ onSave }) => {
                 readOnly={!isEditMode}
               />
             </div>
+
+            {/* Service Opted (Radio Button)  */}
 
             <div className="service-box">
               <h3>Service Opted</h3>
@@ -225,6 +239,7 @@ const Profile = ({ onSave }) => {
               </div>
             </div>
 
+          {/* Save and Edit (Button) */}
 
           <div className='button-group'>
             {isEditMode ? (

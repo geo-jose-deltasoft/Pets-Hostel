@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
@@ -7,8 +7,12 @@ import Contact from './pages/Contact';
 import BookingForm from './pages/BookingForm';
 import Profile from './pages/Profile';
 import BookingTab from './pages/BookingTab';
-import './assets/styles/App.css';
 import StaffList from './pages/StaffList';
+import BookingDetails from './pages/BookingDetails';
+import DashBoard from './pages/DashBoard';
+import MasterBookingList from './pages/MasterBookingList';
+import StaffManagement from './pages/StaffManagement';
+import './assets/styles/App.css';
 
 const App = () => {
   const handleSaveProfile = (profileData) => {
@@ -18,6 +22,7 @@ const App = () => {
   return (
     <div className='app'>
       <Routes>
+
         <Route path="/*" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
@@ -28,7 +33,13 @@ const App = () => {
         />
         <Route path="/booking-history" element={<BookingTab/>} />
 
-        <Route path="/*" element={<StaffList />} />
+        <Route path="/staff-list" element={<StaffList />} />
+        <Route path="/booking-details" element={<BookingDetails />} />
+
+        <Route path="/dashboard" element={<DashBoard/>} />
+        <Route path="/master-booking-list" element={<MasterBookingList/>} />
+        <Route path="/staff-management" element={<StaffManagement/>} />
+
       </Routes>
     </div>
   );
