@@ -8,12 +8,21 @@ const Home = () => {
     <div className='home'>
       <TopBar />
       <div className='home-content'>
-        <h1>Boarding and Lodging for your pets.</h1>
-        <Link to='/booking-form'>
-          <button>Book Appointment</button>
-        </Link>
-        <p>Experience the joy of worry-free travel knowing your pets are in good hands.</p>
-        <img src="./images/landing-removebg.png" alt="Pets" />
+        <div className='home-content-left'>
+          <img src="./images/landing-removebg.png" alt="Pets" />
+        </div>
+        <div className='home-content-right'>
+          <h1>
+            Boarding and Lodging <br />
+            for your precious pets. <br />
+          </h1>
+          <p>
+            Rest easy knowing your pets are in caring hands, ensuring their happiness and well-being while you're away.
+          </p>
+          <Link to='/booking-form'>
+            <button>Book Appointment</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

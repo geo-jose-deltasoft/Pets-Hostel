@@ -1,15 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
 .home {
   padding: 20px;
 }
 
 .home-content {
-  text-align: center;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
   padding: 30px;
 }
 
+.home-content-right {
+  margin-top: 50px;
+  text-align: left;
+  flex: 1;
+}
+
 .home-content h1 {
-  font-size: 24px;
+  font-size: 32px;
+  font-weight: 600;
   margin-bottom: 30px;
+  line-height: 1.5;
 }
 
 .home-content button {
@@ -20,6 +41,7 @@
   border-radius: 4px;
   font-weight: bold;
   color: white;
+  margin-top: 20px;
 }
 
 .home-content button:hover {
@@ -41,17 +63,24 @@
 
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
+  .home-content {
+    flex-direction: column;
+  }
+
   .home-content h1 {
-    font-size: 20px;
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .home-content p {
+    font-size: 14px;
+    text-align: center;
   }
 
   .home-content button {
     padding: 8px 16px;
     font-size: 14px;
-  }
-
-  .home-content p {
-    font-size: 14px;
+    text-align: center;
   }
 
   .home-content img {
@@ -69,14 +98,17 @@
   .home-content h1 {
     font-size: 18px;
     margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .home-content p {
+    font-size: 12px;
+    text-align: center;
   }
 
   .home-content button {
     padding: 6px 12px;
     font-size: 12px;
-  }
-
-  .home-content p {
-    font-size: 12px;
+    text-align: center;
   }
 }
