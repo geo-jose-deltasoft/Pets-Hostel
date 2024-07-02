@@ -34,8 +34,8 @@
 
 .home-content img {
   width: 100%;
-  max-width: 550px; /* Set the width */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 550px; 
+  height: auto; 
   max-height: 350px;
 }
 

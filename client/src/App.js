@@ -22,7 +22,7 @@ const App = () => {
   return (
     <div className='app'>
       <Routes>
-        {/*
+        
         <Route path="/*" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
@@ -35,9 +35,9 @@ const App = () => {
 
         <Route path="/staff-list" element={<StaffList />} />
         <Route path="/booking-details" element={<BookingDetails />} />
-        */}
+        
 
-        <Route path="/*" element={<DashBoard/>} />
+        <Route path="/dashboard" element={<DashBoard/>} />
         <Route path="/master-booking-list" element={<MasterBookingList/>} />
         <Route path="/staff-management" element={<StaffManagement/>} />
 

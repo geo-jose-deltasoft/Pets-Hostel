@@ -5,9 +5,9 @@ import SignupPopup from '../popups/SignupPopup';
 import '../../assets/styles/TopBar.css';
 
 const TopBar = () => {
-
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const [showSignupPopup, setShowSignupPopup] = useState(false);
+  const [navOpen, setNavOpen] = useState(false);
 
   // eslint-disable-next-line 
   const { pathname } = useLocation();
@@ -20,13 +20,22 @@ const TopBar = () => {
     setShowSignupPopup(true);
   };
 
-  return(
+  const toggleNav = () => {
+    setNavOpen(!navOpen);
+  };
+
+  return (
     <nav className='topbar'>
-      <ul>
-        <li><NavLink to="/" end activeClassName="active">Home</NavLink></li>
-        <li><NavLink to="/about" activeClassName="active">About Us</NavLink></li>
-        <li><NavLink to="/contact" activeClassName="active">Contact Us</NavLink></li>
-      </ul>
+      <div className="topbar-left">
+        <div className="hamburger-menu" onClick={toggleNav}>
+          &#9776;
+        </div>
+        <ul className={navOpen ? 'show' : ''}>
+          <li><NavLink to="/" end activeClassName="active">Home</NavLink></li>
+          <li><NavLink to="/about" activeClassName="active">About Us</NavLink></li>
+          <li><NavLink to="/contact" activeClassName="active">Contact Us</NavLink></li>
+        </ul>
+      </div>
       <div className="auth-buttons">
         <button className="login-button" onClick={openLoginPopup}>Login</button>
         <button className="signup-button" onClick={openSignupPopup}>Sign Up</button>
