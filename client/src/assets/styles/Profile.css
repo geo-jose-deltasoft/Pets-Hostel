@@ -93,11 +93,11 @@
 }
 
 /* Service Code */
-.service-box {
+.service-box3 {
   margin-top: 20px;
 }
 
-.service-box h3 {
+.service-box3 h3 {
   text-align: left;
   color: #333;
   font-size: 1rem;
@@ -105,21 +105,21 @@
   margin-bottom: 8px;
 }
 
-.service-option {
+.service-option3 {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.service {
+.service3 {
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
 }
 
-.service input,
-.service label {
+.service3 input,
+.service3 label {
   cursor: pointer;
 }
 

@@ -43,7 +43,7 @@ const StaffManagement = () => {
           <h1>Staff Management</h1>
           <button className="add-staff-btn" onClick={toggleDialog}><FontAwesomeIcon icon={faUserPlus} /> Add Staff</button>
         </div>
-        <div className="search-bar">
+        <div className="search-bar2">
           <input
             type="text"
             placeholder="Search staff..."

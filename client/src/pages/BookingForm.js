@@ -73,74 +73,71 @@ const BookingForm = () => {
       <form action="#" className='form'>
 
       
-      <div className='input-box'>
+          <div className='input-box'>
             <label>Name of Owner</label>
             <div className='column'>
               <input type='text' placeholder='First Name' /*required*//>
               <input type='text' placeholder='Last Name' /*required*//>
             </div>
-      </div>
+          </div>
 
 
-        <div className="column">
+          <div className="column">
+            <div className='input-box'>
+              <label>Mobile Number</label>
+              <input type='number' placeholder='Enter Mobile Number' /*required*/></input>
+            </div>
+
+            <div className='input-box'>
+              <label>Date of Birth</label>
+              <input type='date' placeholder='DOB' /*required*/></input>
+            </div>
+          </div>
+
           <div className='input-box'>
-            <label>Mobile Number</label>
-            <input type='number' placeholder='Enter Mobile Number' /*required*/></input>
+            <label>Email</label>
+            <input type='email' placeholder='example@example.com' /*required*/></input>
           </div>
 
           <div className='input-box'>
-            <label>Date of Birth</label>
-            <input type='date' placeholder='DOB' /*required*/></input>
-          </div>
-        </div>
-
-        <div className='input-box'>
-          <label>Email</label>
-          <input type='email' placeholder='example@example.com' /*required*/></input>
-        </div>
-
-        <div className='input-box'>
-            <label>Address</label>
-            <input type='text' placeholder='Street Address' /*required*/></input>
-            <input type='text' placeholder='Street Address Line 2' /*required*/></input>
-            <div className='column'>
-              <input type='text' placeholder='City' /*required*/></input>
-              <input type='text' placeholder='State/Province' /*required*/></input>
-            </div>
-            <input type='text' placeholder='Postal/Zip Code' /*required*/></input>
+              <label>Address</label>
+              <input type='text' placeholder='Street Address' /*required*/></input>
+              <input type='text' placeholder='Street Address Line 2' /*required*/></input>
+              <div className='column'>
+                <input type='text' placeholder='City' /*required*/></input>
+                <input type='text' placeholder='State/Province' /*required*/></input>
+              </div>
+              <input type='text' placeholder='Postal/Zip Code' /*required*/></input>
           </div>
 
-        <div class="contact-box">
-          <h3>Preferred Method of Contact</h3>
-
-          <div class="contact-option">
-            <div class="contact">
-              <input type="radio" id="check-phone" name="contact"/>
-              <label for="check-phone">Phone</label>
+          <div class="contact-box1">
+            <h3>Preferred Method of Contact</h3>
+            <div class="contact-option1">
+              <div class="contact1">
+                <input type="radio" id="check-phone" name="contact"/>
+                <label for="check-phone">Phone</label>
+              </div>
+              <div class="contact1">
+                <input type="radio" id="check-email" name="contact"/>
+                <label for="check-email">Email</label>
+              </div>
             </div>
-
-            <div class="contact">
-              <input type="radio" id="check-email" name="contact"/>
-              <label for="check-email">Email</label>
-            </div>
-
           </div>
-        </div>
 
-        <div className='input-box'>
-          <label>Pet Name</label>
-          <input type='text' placeholder='Enter Pet Name' /*required*/></input>
-        </div>
+          <div className='input-box'>
+            <label>Pet Name</label>
+            <input type='text' placeholder='Enter Pet Name' /*required*/></input>
+          </div>
 
-        <div className='input-box'>
-            <label>Pet Type</label>
-            <select>
-              <option value='' disabled selected>Select Pet Type</option>
-              <option value='dog'>Dog</option>
-              <option value='cat'>Cat</option>
-              <option value='bird'>Bird</option>
-              <option value='other'>Rat</option>
-            </select>
+          <div className='input-box'>
+              <label>Pet Type</label>
+              <select>
+                <option value='' disabled selected>Select Pet Type</option>
+                <option value='dog'>Dog</option>
+                <option value='cat'>Cat</option>
+                <option value='bird'>Bird</option>
+                <option value='other'>Rat</option>
+              </select>
           </div>
 
           
@@ -168,40 +165,40 @@ const BookingForm = () => {
             </div>
           </div>
 
-          <div class="service-box">
+          <div class="service-box1">
           <h3>Service you want to Opt for</h3>
 
-          <div class="service-option">
-            <div class="service">
-              <input type="radio" id="check-daycare" name="service"/>
-              <label for="check-daycare">DayCare</label>
-            </div>
+            <div class="service-option1">
+              <div class="service1">
+                <input type="radio" id="check-daycare" name="service1"/>
+                <label for="check-daycare">DayCare</label>
+              </div>
 
-            <div class="service">
-              <input type="radio" id="check-grooming" name="service"/>
-              <label for="check-grooming">Grooming</label>
-            </div>
+              <div class="service1">
+                <input type="radio" id="check-grooming" name="service1"/>
+                <label for="check-grooming">Grooming</label>
+              </div>
 
-            <div class="service">
-              <input type="radio" id="check-walking" name="service"/>
-              <label for="check-walking">Walking</label>
+              <div class="service1">
+                <input type="radio" id="check-walking" name="service1"/>
+                <label for="check-walking">Walking</label>
+              </div>
             </div>
 
           </div>
-        </div>
 
-        <div className='input-box'>
-            <label>Pet Birthday</label>
-            <div className='date-picker-container2'>
-              <FaCalendarAlt className='calendar-icon' />
-              <DatePicker
-                selected={petBirthday}
-                onChange={(date) => setPetBirthday(date)}
-                placeholderText="Select Pet Birthday"
-                className='date-picker-input2'
-              />
-            </div>
-        </div>
+          <div className='input-box'>
+              <label>Pet Birthday</label>
+              <div className='date-picker-container2'>
+                <FaCalendarAlt className='calendar-icon' />
+                <DatePicker
+                  selected={petBirthday}
+                  onChange={(date) => setPetBirthday(date)}
+                  placeholderText="Select Pet Birthday"
+                  className='date-picker-input2'
+                />
+              </div>
+          </div>
 
           <div className='input-box'>
             <label>Pet Age</label>

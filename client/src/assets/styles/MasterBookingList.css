@@ -7,72 +7,112 @@
   font-family: "Poppins", sans-serif;
 }
 
-.master-booking-list-container {
+.master-list-container {
   display: flex;
 }
 
-.master-booking-list-content {
+.master-list-content {
   margin-left: 250px;
   padding: 20px;
   width: calc(100% - 250px); 
 }
 
-.master-booking-list-content h1 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 40px;
+.master-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.booking-table {
+.master-header-container h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.action-icons2 {
+  display: flex;
+  align-items: center;
+}
+
+.header-icon2 {
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.search-container2 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-container2 input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.search-container2 button {
+  background-color: #a625ec;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-container2 button:hover {
+  background-color: #dd9dff;
+}
+
+
+table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
 }
 
-.booking-table th,
-.booking-table td {
-  padding: 12px;
+table th, table td {
+  padding: 10px;
+  border: 1px solid #ddd;
   text-align: center;
-  border-bottom: 1px solid #ddd;
-}
-
-.booking-table th {
-  background-color: #f2f2f2;
-  color: #333;
-}
-
-.booking-table td {
   vertical-align: middle;
 }
 
-.booking-table td i {
-  color: #a625ec;
-  font-size: 18px;
+table th {
+  background-color: #f4f4f4;
+}
+
+.table-icon2 {
+  font-size: 20px;
+  margin-right: 10px;
   cursor: pointer;
 }
 
-.booking-table td i:hover {
-  color: #dd9dff;
+.header-icon2:hover, .table-icon2:hover {
+  color: #a625ec;
 }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .master-booking-list-content {
+  .content {
     margin-left: 0;
-    width: 100%;
-    padding: 20px;
   }
 
-  .master-booking-list-content h1 {
-    margin-bottom: 30px;
-    text-align: center;
-  }
-
-  .master-booking-list-container {
+  .master-header-container {
     flex-direction: column;
+    align-items: flex-start;
   }
 
-  .booking-table th,
-  .booking-table td {
-    padding: 10px;
+  .action-icons2 {
+    margin-top: 10px;
+  }
+
+  .search-bar2 {
+    width: 100%;
   }
 }

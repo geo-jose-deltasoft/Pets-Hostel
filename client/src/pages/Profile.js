@@ -176,14 +176,14 @@ const Profile = ({ onSave }) => {
 
             {/* Service Opted (Radio Button)  */}
 
-            <div className="service-box">
+            <div className="service-box3">
               <h3>Service Opted</h3>
-              <div className="service-option">
-                <div className="service">
+              <div className="service-option3">
+                <div className="service3">
                   <input
                     type="radio"
                     id="check-daycare"
-                    name="service"
+                    name="service3"
                     checked={serviceOpted === 'Day Care'}
                     onChange={() => setServiceOpted('Day Care')}
                     disabled={!isEditMode}
@@ -198,11 +198,11 @@ const Profile = ({ onSave }) => {
                     Day Care
                   </label>
                 </div>
-                <div className="service">
+                <div className="service3">
                   <input
                     type="radio"
                     id="check-grooming"
-                    name="service"
+                    name="service3"
                     checked={serviceOpted === 'Grooming'}
                     onChange={() => setServiceOpted('Grooming')}
                     disabled={!isEditMode}
@@ -217,11 +217,11 @@ const Profile = ({ onSave }) => {
                     Grooming
                   </label>
                 </div>
-                <div className="service">
+                <div className="service3">
                   <input
                     type="radio"
                     id="check-walking"
-                    name="service"
+                    name="service3"
                     checked={serviceOpted === 'Walking'}
                     onChange={() => setServiceOpted('Walking')}
                     disabled={!isEditMode}

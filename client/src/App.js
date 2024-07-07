@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -23,7 +22,7 @@ const App = () => {
     <div className='app'>
       <Routes>
         
-        <Route path="/*" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/booking-form" element={<BookingForm />} />
@@ -37,7 +36,7 @@ const App = () => {
         <Route path="/booking-details" element={<BookingDetails />} />
         
 
-        <Route path="/dashboard" element={<DashBoard/>} />
+        <Route path="/*" element={<DashBoard/>} />
         <Route path="/master-booking-list" element={<MasterBookingList/>} />
         <Route path="/staff-management" element={<StaffManagement/>} />
 

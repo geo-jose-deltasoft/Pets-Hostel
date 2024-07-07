@@ -7,9 +7,7 @@ const AddStaff = ({ isOpen, onClose }) => {
     age: '',
     address: '',
     email: '',
-    mobile: '',
-    username: '',
-    password: ''
+    mobile: ''
   });
 
   const handleChange = (e) => {
@@ -50,11 +48,6 @@ const AddStaff = ({ isOpen, onClose }) => {
           <label htmlFor="mobile">Mobile Number:</label>
           <input type="text" id="mobile" name="mobile" value={formData.mobile} onChange={handleChange} />
 
-          <label htmlFor="username">Username:</label>
-          <input type="text" id="username" name="username" value={formData.username} onChange={handleChange} />
-
-          <label htmlFor="password">Password:</label>
-          <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} />
         </div>
         <div className="dialogue-box-footer">
           <button className="cancel-btn" onClick={onClose}>Cancel</button>

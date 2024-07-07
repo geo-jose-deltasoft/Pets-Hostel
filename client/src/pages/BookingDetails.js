@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { FaArrowLeft, FaCalendarAlt } from 'react-icons/fa';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import '../assets/styles/BookingDetails.css'; 
 
 const BookingDetails = () => {
+  const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
@@ -134,11 +135,15 @@ const BookingDetails = () => {
     alert('Changes saved successfully!');
   };
 
+  const handleBack = () => {
+    navigate('/staff-list');
+  };
+
   return (
     <div className='body'>
       <section className='container'>
         <header className='container-header'>
-          <FaArrowLeft className='back-icon' onClick={() => {}} />
+          <FaArrowLeft className='back-icon' onClick={handleBack} />
           Booking Details
         </header>
 
@@ -218,14 +223,14 @@ const BookingDetails = () => {
 
           {/* Contact Options */}
 
-          <div className="contact-box">
+          <div className="contact-box2">
             <h3>Contact via</h3>
-            <div className="contact-option">
-              <div className="contact">
+            <div className="contact-option2">
+              <div className="contact2">
                 <input
                   type="radio"
                   id="contact-phone"
-                  name="contact"
+                  name="contact2"
                   checked={contactMethod === 'Phone'}
                   onChange={() => setContactMethod('Phone')}
                   disabled={!isEditMode}
@@ -240,11 +245,11 @@ const BookingDetails = () => {
                   Phone
                 </label>
               </div>
-              <div className="contact">
+              <div className="contact2">
                 <input
                   type="radio"
                   id="contact-email"
-                  name="contact"
+                  name="contact2"
                   checked={contactMethod === 'Email'}
                   onChange={() => setContactMethod('Email')}
                   disabled={!isEditMode}
@@ -259,11 +264,11 @@ const BookingDetails = () => {
                   Email
                 </label>
               </div>
-              <div className="contact">
+              <div className="contact2">
                 <input
                   type="radio"
                   id="contact-none"
-                  name="contact"
+                  name="contact2"
                   checked={contactMethod === 'None'}
                   onChange={() => setContactMethod('None')}
                   disabled={!isEditMode}
@@ -452,14 +457,14 @@ const BookingDetails = () => {
 
           {/* Service Opted (Radio) */}
 
-          <div className="service-box">
+          <div className="service-box2">
             <h3>Service Opted</h3>
-            <div className="service-option">
-              <div className="service">
+            <div className="service-option2">
+              <div className="service2">
                 <input
                   type="radio"
                   id="check-daycare"
-                  name="service"
+                  name="service2"
                   checked={serviceOpted === 'Day Care'}
                   onChange={() => setServiceOpted('Day Care')}
                   disabled={!isEditMode}
@@ -474,11 +479,11 @@ const BookingDetails = () => {
                   Day Care
                 </label>
               </div>
-              <div className="service">
+              <div className="service2">
                 <input
                   type="radio"
                   id="check-grooming"
-                  name="service"
+                  name="service2"
                   checked={serviceOpted === 'Grooming'}
                   onChange={() => setServiceOpted('Grooming')}
                   disabled={!isEditMode}
@@ -493,11 +498,11 @@ const BookingDetails = () => {
                   Grooming
                 </label>
               </div>
-              <div className="service">
+              <div className="service2">
                 <input
                   type="radio"
                   id="check-walking"
-                  name="service"
+                  name="service2"
                   checked={serviceOpted === 'Walking'}
                   onChange={() => setServiceOpted('Walking')}
                   disabled={!isEditMode}
