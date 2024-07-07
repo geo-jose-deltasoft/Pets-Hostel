@@ -1,9 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBirthdayCake, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
-import '../../assets/styles/MasterNotification.css';
+import '../../assets/styles/Notification.css';
 
-const MasterNotification = ({ isOpen, onClose, notifications }) => {
+const Notification = ({ isOpen, onClose, notifications }) => {
   if (!isOpen) return null;
 
   return (
@@ -29,4 +29,4 @@ const MasterNotification = ({ isOpen, onClose, notifications }) => {
   );
 };
 
-export default MasterNotification;
+export default Notification;

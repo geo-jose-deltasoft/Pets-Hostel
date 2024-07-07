@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faNoteSticky, faCalendarDays } from '@fortawesome/free-regular-svg-icons';
-import { faInfoCircle, faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import DeleteConfirm from '../components/popups/DeleteConfirm';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faNoteSticky } from '@fortawesome/free-regular-svg-icons';
+import { faBell, faSearch, faInfoCircle, faEdit, faCalendarDays } from '@fortawesome/free-solid-svg-icons';
+import Notification from '../components/popups/Notification';
 import '../assets/styles/StaffList.css';
 
 const StaffList = () => {
   const navigate = useNavigate();
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [data, setData] = useState([]);
+  const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
     // Simulating API call with dummy data
@@ -25,10 +27,23 @@ const StaffList = () => {
         },
       ];
       setData(dummyData);
+
+      const dummyNotifications = [
+        { type: 'birthday', message: 'Buddy\'s birthday is on 2023-07-10' },
+        { type: 'event', message: 'Grooming Session on 2023-07-15' },
+        { type: 'birthday', message: 'Max\'s birthday is on 2023-07-12' },
+        { type: 'event', message: 'Vaccination camp on 2023-07-20' },
+      ];
+      setNotifications(dummyNotifications);
+
     };
 
     fetchData();
   }, []);
+
+  const toggleNotificationDialog = () => {
+    setIsNotificationOpen(!isNotificationOpen);
+  };
 
   const handleAddNote = () => {
     alert('Add Note dialog');
@@ -36,6 +51,10 @@ const StaffList = () => {
 
   const handleAddEvent = () => {
     alert('Add Event dialog');
+  };
+
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
   };
 
   const handleMoreInfo = () => {
@@ -46,31 +65,28 @@ const StaffList = () => {
     navigate('/booking-details', { state: { editable: true } });
   };
 
-  const handleDelete = () => {
-    setIsDialogOpen(true);
-  };
-
-  const handleConfirmDelete = () => {
-    alert('Booking deleted');
-    setIsDialogOpen(false);
-  };
-
-  const handleCloseDialog = () => {
-    setIsDialogOpen(false);
-  };
-
   return (
     <div className='staff-list-container'>
       <div className='header-container'>
         <h2>Customer Booking List</h2>
+        <FontAwesomeIcon 
+          icon={faBell} 
+          className="header-icon" 
+          onClick={toggleNotificationDialog} 
+        />
         <div className="action-icons">
           <FontAwesomeIcon icon={faNoteSticky} onClick={handleAddNote} className="header-icon" />
-          <FontAwesomeIcon icon={faCalendarDays} onClick={handleAddEvent} className="header-icon" />
         </div>
         <button className='create-booking-btn' onClick={() => navigate('/booking-form')}>Create Booking</button>
       </div>
       <div className='search-container'>
-        <input type="text" className="search-bar" placeholder="Search..." />
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={handleSearch}
+        />
+        <button><FontAwesomeIcon icon={faSearch} /></button>
       </div>
       <div className='table-container'>
         <table>
@@ -100,17 +116,17 @@ const StaffList = () => {
                 </td>
                 <td>
                   <FontAwesomeIcon icon={faEdit} className="table-icon" onClick={handleEdit} />
-                  <FontAwesomeIcon icon={faTrashAlt} className="table-icon" onClick={handleDelete} />
+                  <FontAwesomeIcon icon={faCalendarDays} className="table-icon" onClick={handleAddEvent}  />
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <DeleteConfirm 
-        isOpen={isDialogOpen} 
-        onClose={handleCloseDialog} 
-        onConfirm={handleConfirmDelete} 
+      <Notification 
+        isOpen={isNotificationOpen} 
+        onClose={toggleNotificationDialog} 
+        notifications={notifications} 
       />
     </div>
   );

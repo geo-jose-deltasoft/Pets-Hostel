@@ -11,6 +11,7 @@
   padding: 20px;
 }
 
+/*Header Styles*/
 .header-container {
   display: flex;
   justify-content: flex-start;
@@ -36,6 +37,7 @@
   margin-right: 40px;
 }
 
+/*Create Booking Button Styles*/
 .create-booking-btn {
   background-color: #a625ec;
   color: #fff;
@@ -50,18 +52,37 @@
   background-color: #dd9dff;
 }
 
+/*Search Bar Styles*/
 .search-container {
-  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.search-bar {
-  width: 50%;
+.search-container input[type="text"] {
+  width: 500px;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 4px;
   font-size: 16px;
 }
 
+.search-container button {
+  background-color: #a625ec;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+  background-color: #dd9dff;
+}
+
+/*Table Styles*/
 .table-container {
   overflow-x: auto;
 }

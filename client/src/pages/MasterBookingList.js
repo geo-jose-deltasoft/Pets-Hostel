@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faInfoCircle, faEdit, faTrashAlt, faBell } from '@fortawesome/free-solid-svg-icons';
 import DeleteConfirm from '../components/popups/DeleteConfirm';
-import MasterNotification from '../components/popups/MasterNotification';
+import Notification from '../components/popups/Notification';
 import SideBar from '../components/layouts/SideBar';
 import '../assets/styles/MasterBookingList.css';
 
@@ -152,7 +152,7 @@ const MasterBookingList = () => {
           onClose={handleCloseDialog} 
           onConfirm={handleConfirmDelete} 
         />
-        <MasterNotification 
+        <Notification 
           isOpen={isNotificationOpen} 
           onClose={toggleNotificationDialog} 
           notifications={notifications} 

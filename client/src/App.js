@@ -32,11 +32,11 @@ const App = () => {
         />
         <Route path="/booking-history" element={<BookingTab/>} />
 
-        <Route path="/staff-list" element={<StaffList />} />
+        <Route path="/*" element={<StaffList />} />
         <Route path="/booking-details" element={<BookingDetails />} />
         
 
-        <Route path="/*" element={<DashBoard/>} />
+        <Route path="/dashboard" element={<DashBoard/>} />
         <Route path="/master-booking-list" element={<MasterBookingList/>} />
         <Route path="/staff-management" element={<StaffManagement/>} />
 
