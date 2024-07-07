@@ -14,6 +14,7 @@ const MasterBookingList = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [data, setData] = useState([]);
   const [notifications, setNotifications] = useState([]);
+  const [deleteId, setDeleteId] = useState(null);
 
   useEffect(() => {
     // Simulating API call with dummy data
@@ -26,6 +27,22 @@ const MasterBookingList = () => {
           mobileNumber: '123-456-7890',
           email: 'johndoe@example.com',
           remarks: 'Example remarks',
+        },
+        {
+          id: 2,
+          bookingDate: '2023-07-01',
+          name: 'Jane Smith',
+          mobileNumber: '987-654-3210',
+          email: 'janesmith@example.com',
+          remarks: 'Another example remarks',
+        },
+        {
+          id: 3,
+          bookingDate: '2023-07-04',
+          name: 'Alice Johnson',
+          mobileNumber: '555-555-5555',
+          email: 'alicejohnson@example.com',
+          remarks: 'Some remarks here',
         },
       ];
       setData(dummyData);
@@ -59,18 +76,20 @@ const MasterBookingList = () => {
     setIsNotificationOpen(!isNotificationOpen);
   };
 
-  const handleDelete = () => {
+  const handleDelete = (id) => {
+    setDeleteId(id); 
     setIsDialogOpen(true);
   };
 
   const handleConfirmDelete = () => {
-    alert('Booking deleted');
+    setData(data.filter(item => item.id !== deleteId)); 
     setIsDialogOpen(false);
   };
 
   const handleCloseDialog = () => {
     setIsDialogOpen(false);
   };
+
 
   return (
     <div className='master-list-container'>
@@ -121,7 +140,7 @@ const MasterBookingList = () => {
                   </td>
                   <td>
                     <FontAwesomeIcon icon={faEdit} className="table-icon2" onClick={handleEdit} />
-                    <FontAwesomeIcon icon={faTrashAlt} className="table-icon2" onClick={handleDelete} />
+                    <FontAwesomeIcon icon={faTrashAlt} className="table-icon2" onClick={() => handleDelete(item.id)} />
                   </td>
                 </tr>
               ))}
@@ -138,9 +157,9 @@ const MasterBookingList = () => {
           onClose={toggleNotificationDialog} 
           notifications={notifications} 
         />
-        </div>
       </div>
-    );
-  };
+    </div>
+  );
+};
 
 export default MasterBookingList;

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import SideBar from '../components/layouts/SideBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus, faSearch, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
-import AddStaff from '../components/popups/AddStaff'; // Import the dialog component
+import AddStaff from '../components/popups/AddStaff';
+import DeleteConfirm from '../components/popups/DeleteConfirm';
 import '../assets/styles/StaffManagement.css';
 
 const StaffManagement = () => {
@@ -13,26 +14,41 @@ const StaffManagement = () => {
   ]);
 
   const [searchTerm, setSearchTerm] = useState('');
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isAddStaffOpen, setIsAddStaffOpen] = useState(false);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 
   const handleDelete = (id) => {
-    const updatedStaffList = staffList.filter((staff) => staff.id !== id);
-    setStaffList(updatedStaffList);
-    // API call to delete staff member would be implemented here
+    setDeleteId(id); 
+    setIsDeleteDialogOpen(true);
+  };
+
+  const handleConfirmDelete = () => {
+    setStaffList(staffList.filter(item => item.id !== deleteId));  
+    setIsDeleteDialogOpen(false);
   };
 
   const handleUpdate = (id) => {
     console.log(`Update staff with ID: ${id}`);
     // Handle update logic 
-    setIsDialogOpen(true);
+    setIsAddStaffOpen(true);
   };
 
-  const toggleDialog = () => {
-    setIsDialogOpen(!isDialogOpen);
+  const handleCloseDialog = () => {
+    setIsAddStaffOpen(false);
+    setIsDeleteDialogOpen(false);
+  };
+
+  const toggleAddStaffDialog = () => {
+    setIsAddStaffOpen(!isAddStaffOpen);
+  };
+
+  const toggleDeleteDialog = () => {
+    setIsDeleteDialogOpen(!isDeleteDialogOpen);
   };
 
   return (
@@ -41,7 +57,11 @@ const StaffManagement = () => {
       <div className="staff-management-content">
         <div className="staff-management-header">
           <h1>Staff Management</h1>
-          <button className="add-staff-btn" onClick={toggleDialog}><FontAwesomeIcon icon={faUserPlus} /> Add Staff</button>
+          <button 
+            className="add-staff-btn" 
+            onClick={toggleAddStaffDialog}>
+            <FontAwesomeIcon icon={faUserPlus} /> Add Staff
+          </button>
         </div>
         <div className="search-bar2">
           <input
@@ -84,8 +104,15 @@ const StaffManagement = () => {
           </table>
         </div>
       </div>
-      {/* Integration of AddUpdateStaffDialog */}
-      <AddStaff isOpen={isDialogOpen} onClose={toggleDialog} />
+      <AddStaff 
+        isOpen={isAddStaffOpen} 
+        onClose={toggleAddStaffDialog} 
+      />
+      <DeleteConfirm 
+        isOpen={isDeleteDialogOpen} 
+        onClose={handleCloseDialog} 
+        onConfirm={handleConfirmDelete}
+      />
     </div>
   );
 };
