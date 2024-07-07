@@ -1,0 +1,81 @@
+.notification-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+}
+
+.notification-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 90%;
+  max-width: 400px;
+}
+
+.dialog-content {
+  text-align: center;
+}
+
+.dialog-content h2 {
+  margin-bottom: 20px;
+}
+
+.dialog-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dialog-content li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.notification-icon {
+  margin-right: 10px;
+}
+
+.notification-text {
+  font-weight: bold;
+}
+
+.dialog-content button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #a625ec;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.dialog-content button:hover {
+  background-color: #dd9dff;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+  .notification-dialog {
+    width: 90%;
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .dialog-content h2 {
+    font-size: 1.5em;
+  }
+
+  .dialog-content button {
+    padding: 10px 15px;
+  }
+}

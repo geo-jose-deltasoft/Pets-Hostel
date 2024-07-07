@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faNoteSticky, faCalendarDays } from '@fortawesome/free-regular-svg-icons';
-import { faSearch, faInfoCircle, faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faInfoCircle, faEdit, faTrashAlt, faBell } from '@fortawesome/free-solid-svg-icons';
 import DeleteConfirm from '../components/popups/DeleteConfirm';
+import MasterNotification from '../components/popups/MasterNotification';
 import SideBar from '../components/layouts/SideBar';
 import '../assets/styles/MasterBookingList.css';
 
 const MasterBookingList = () => {
   const navigate = useNavigate();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [data, setData] = useState([]);
+  const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
     // Simulating API call with dummy data
@@ -27,18 +29,19 @@ const MasterBookingList = () => {
         },
       ];
       setData(dummyData);
+
+      const dummyNotifications = [
+        { type: 'birthday', message: 'Buddy\'s birthday is on 2023-07-10' },
+        { type: 'event', message: 'Grooming Session on 2023-07-15' },
+        { type: 'birthday', message: 'Max\'s birthday is on 2023-07-12' },
+        { type: 'event', message: 'Vaccination camp on 2023-07-20' },
+      ];
+      setNotifications(dummyNotifications);
+
     };
 
     fetchData();
   }, []);
-
-  const handleAddNote = () => {
-    alert('Add Note dialog');
-  };
-
-  const handleAddEvent = () => {
-    alert('Add Event dialog');
-  };
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -50,6 +53,10 @@ const MasterBookingList = () => {
 
   const handleEdit = () => {
     navigate('/booking-details', { state: { editable: true } });
+  };
+
+  const toggleNotificationDialog = () => {
+    setIsNotificationOpen(!isNotificationOpen);
   };
 
   const handleDelete = () => {
@@ -71,10 +78,11 @@ const MasterBookingList = () => {
       <div className='master-list-content'>
         <div className='master-header-container'>
           <h1>Master Booking List</h1>
-          <div className="action-icons2">
-            <FontAwesomeIcon icon={faNoteSticky} onClick={handleAddNote} className="header-icon2" />
-            <FontAwesomeIcon icon={faCalendarDays} onClick={handleAddEvent} className="header-icon2" />
-          </div>
+          <FontAwesomeIcon 
+            icon={faBell} 
+            className="header-icon2" 
+            onClick={toggleNotificationDialog} 
+          />
         </div>
         <div className='search-container2'>
           <input
@@ -125,67 +133,14 @@ const MasterBookingList = () => {
           onClose={handleCloseDialog} 
           onConfirm={handleConfirmDelete} 
         />
+        <MasterNotification 
+          isOpen={isNotificationOpen} 
+          onClose={toggleNotificationDialog} 
+          notifications={notifications} 
+        />
         </div>
       </div>
     );
   };
 
 export default MasterBookingList;
-
-
-{/*import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfoCircle, faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import SideBar from '../components/layouts/SideBar';
-import '../assets/styles/MasterBookingList.css';
-
-// Dummy data to be replaced with actual API integration
-const bookings = [
-  { id: 1, amountPaid: 100, bookingDate: '2024-07-01', serviceOpted: 'Day Care' },
-  { id: 2, amountPaid: 150, bookingDate: '2024-07-02', serviceOpted: 'Grooming' },
-  { id: 3, amountPaid: 80, bookingDate: '2024-07-03', serviceOpted: 'Walking' },
-];
-
-const MasterBookingList = () => {
-  // Function to render the table rows
-  const renderTableRows = () => {
-    return bookings.map((booking, index) => (
-      <tr key={booking.id}>
-        <td>{index + 1}</td>
-        <td>${booking.amountPaid}</td>
-        <td>{booking.bookingDate}</td>
-        <td>{booking.serviceOpted}</td>
-        <td><i className="fas fa-info-circle"></i></td>
-      </tr>
-    ));
-  };
-
-  return (
-    <div className="master-booking-list-container">
-      <SideBar />
-      <div className="master-booking-list-content">
-        <h1>Master Booking List</h1>
-        <table className="booking-table">
-          <thead>
-            <tr>
-              <th>S.No</th>
-              <th>Booking Date</th>
-              <th>Name</th>
-              <th>Mobile Number</th>
-              <th>Email</th>
-              <th>Remarks</th>
-              <th>More Info</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {renderTableRows()}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
-};
-
-export default MasterBookingList;
-*/}
