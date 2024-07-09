@@ -41,16 +41,15 @@
 
 .services {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
   margin-top: 20px;
 }
 
 .service {
-  width: 100%;
-  max-width: 400px;
+  width: 30%;
   text-align: center;
-  margin: 10px 0;
+  margin-bottom: 20px;
   padding: 20px;
   background-color: #f4f4f4;
   border-radius: 8px;
@@ -89,7 +88,8 @@
   }
 
   .service {
-    width: 90%;
+    width: 45%;
+    margin-bottom: 20px;
   }
 
   .service-icon {
@@ -121,6 +121,7 @@
 
   .service {
     width: 100%;
+    margin-bottom: 20px;
   }
 
   .service-icon {

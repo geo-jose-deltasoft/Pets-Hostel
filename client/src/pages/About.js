@@ -1,7 +1,7 @@
 import React from 'react';
 import TopBar from '../components/layouts/TopBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBed, faHome, faDog, faScissors, faWalking } from '@fortawesome/free-solid-svg-icons';
+import { faBed, faHome, faDog, faScissors, faWalking, faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons';
 import '../assets/styles/About.css';
 
 const About = () => {
@@ -39,6 +39,11 @@ const About = () => {
             <FontAwesomeIcon icon={faWalking} className="service-icon" />
             <h3>Walking</h3>
             <p>Regular walks and exercise routines.</p>
+          </div>
+          <div className='service'>
+            <FontAwesomeIcon icon={faChalkboardTeacher} className="service-icon" />
+            <h3>Training</h3>
+            <p>Effective Training sessions for your pet</p>
           </div>
         </div>
       </div>
