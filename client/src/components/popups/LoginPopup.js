@@ -24,6 +24,7 @@ const LoginPopup = ({ onClose }) => {
   };
 
   return (
+    <div className='login-overlay'>
       <div className='popup'>
         <div className='popup-content'>
           <button className="close-button" onClick={onClose}>×</button>
@@ -37,6 +38,7 @@ const LoginPopup = ({ onClose }) => {
         {showResetPopup && <ResetPopup onClose={closeResetPopup} />}
         {showSignupPopup && <SignupPopup onClose={closeSignupPopup} />}
       </div>
+    </div>
   );
 };
 

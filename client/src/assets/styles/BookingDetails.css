@@ -310,8 +310,6 @@ input[type="number"] {
   background-color: #f98376;
 }
 
-
-
 /* Reset & Save Button */
 .button-group {
   display: flex;
@@ -354,13 +352,20 @@ input[type="number"] {
   background-color: #dd9dff;
 }
 
+.editable .form .input-box input,
+.editable .form .input-box select,
+.editable .form .input-box textarea,
+.editable .form .column input {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  cursor: text;
+}
 
-/* Read-Only State */
 .read-only .form .input-box input,
 .read-only .form .input-box select,
 .read-only .form .input-box textarea,
 .read-only .form .column input {
-  background-color: #f0f0f0;
+  background-color: #828282;
   border: 1px solid #ccc;
   cursor: not-allowed;
 }

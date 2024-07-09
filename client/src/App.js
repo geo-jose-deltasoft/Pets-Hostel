@@ -22,7 +22,7 @@ const App = () => {
     <div className='app'>
       <Routes>
         
-        <Route path="/home" element={<Home />} />
+        <Route path="/*" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/booking-form" element={<BookingForm />} />
@@ -32,7 +32,7 @@ const App = () => {
         />
         <Route path="/booking-history" element={<BookingTab/>} />
 
-        <Route path="/*" element={<StaffList />} />
+        <Route path="/staff-list" element={<StaffList />} />
         <Route path="/booking-details" element={<BookingDetails />} />
         
 
