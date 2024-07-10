@@ -90,15 +90,14 @@
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
   .topbar {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row; /* Maintain row direction */
+    justify-content: space-between;
   }
 
   .topbar-left {
-    width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    width: auto;
   }
 
   .topbar ul {
@@ -117,14 +116,15 @@
   }
 
   .auth-buttons {
-    flex-direction: column;
-    width: 100%;
+    flex-direction: row; 
+    align-items: center; 
+    width: auto; 
   }
 
   .login-button,
   .signup-button {
-    width: 100%;
-    margin: 5px 0;
+    width: auto;
+    margin: 5px;
   }
 
   .hamburger-menu {
@@ -132,11 +132,12 @@
     cursor: pointer;
     font-size: 24px;
     padding: 10px;
+    margin-right: 10px; /* Space between menu and buttons */
   }
 }
 
 @media (min-width: 769px) {
   .hamburger-menu {
-    display: none; /* Hide the hamburger menu on larger screens */
+    display: none;
   }
 }

@@ -19,9 +19,11 @@ const Home = () => {
           <p>
             Rest easy knowing your pets are in caring hands, ensuring their happiness and well-being while you're away.
           </p>
-          <Link to='/booking-form'>
-            <button>Book Appointment</button>
-          </Link>
+          <div className='button-wrapper'>
+            <Link to='/booking-form'>
+              <button>Book Appointment</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
