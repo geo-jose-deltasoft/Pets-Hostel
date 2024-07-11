@@ -1,0 +1,20 @@
+# Node.js dependencies
+/node_modules
+
+# Environment variables
+/.env
+
+# Generated log files
+/logs
+*.log
+npm-debug.log*
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# User-specific files
+.idea/
+.vscode/
+
+npm-debug.log*
