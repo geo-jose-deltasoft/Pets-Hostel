@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-* {
+:global(*) {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
 
-.body {
+
+.body-p {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -51,24 +52,27 @@
   cursor: pointer;
 }
 
-.input-group {
+.input-group-p {
+  width: 100%;
+  text-align: left;
   margin-top: 20px;
 }
 
-.input-group label {
+.input-group-p label {
   font-weight: normal;
+  text-align: left;
 }
 
-.input-group label.personal-details,
-.input-group label.pet-details {
+.input-group-p label.personal-details,
+.input-group-p label.pet-details {
   font-weight: bold;
   border-bottom: 2px solid #333; 
   margin-bottom: 10px; 
 }
 
-.input-group input,
-.input-group textarea,
-.input-group select {
+.input-group-p input,
+.input-group-p textarea,
+.input-group-p select {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -77,19 +81,19 @@
   font-size: 16px;
 }
 
-.input-group textarea {
+.input-group-p textarea {
   height: 100px;
 }
 
-.input-group input:read-only,
-.input-group textarea:read-only {
+.input-group-p input:read-only,
+.input-group-p textarea:read-only {
   background-color: #f1f1f1;
   color: #666;
 }
 
-.column {
+.column-p {
   display: flex;
-  column-gap: 15px;
+  column-gap: 20px;
 }
 
 /* Service Code */
@@ -123,10 +127,6 @@
   cursor: pointer;
 }
 
-/*Amount Code*/
-
-
-
 .button-group {
   display: flex;
   justify-content: space-between;
@@ -158,9 +158,9 @@
     padding: 10px;
   }
 
-  .input-group input,
-  .input-group textarea,
-  .input-group select {
+  .input-group-p input,
+  .input-group-p textarea,
+  .input-group-p select {
     font-size: 14px;
   }
 

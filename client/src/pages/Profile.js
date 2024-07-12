@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../assets/styles/Profile.css';
+import styles from '../assets/styles/Profile.module.css';
 
 const Profile = ({ onSave }) => {
   const [fullName, setFullName] = useState('John Doe');
@@ -36,25 +36,25 @@ const Profile = ({ onSave }) => {
   };
 
   return (
-    <div className="body">
-      <div className='profile-container'>
-        <header className='profile-header'>Profile</header>
+    <div className={styles["body-p"]}>
+      <div className={styles['profile-container']}>
+        <header className={styles['profile-header']}>Profile</header>
         
         {/* Booking History (Button) */}
 
         <Link to="/booking-history">
-          <button className='booking-history-button'>Booking History</button>
+          <button className={styles['booking-history-button']}>Booking History</button>
         </Link>
 
-        <form className='profile-form'>
-          <div className='input-group'>
-            <label className='personal-details'>PERSONAL DETAILS</label>
+        <form className={styles['profile-form']}>
+          <div className={styles['input-group-p']}>
+            <label className={styles['personal-details']}>PERSONAL DETAILS</label>
           </div>
 
           {/* Profile Name + DOB */}
 
-          <div className='column'>
-            <div className='input-group'>
+          <div className={styles['column-p']}>
+            <div className={styles['input-group-p']}>
               <label>Full Name</label>
               <input
                 type='text'
@@ -64,7 +64,7 @@ const Profile = ({ onSave }) => {
               />
             </div>
 
-            <div className='input-group'>
+            <div className={styles['input-group-p']}>
               <label>Date of Birth</label>
               <input
                 type='date'
@@ -78,8 +78,8 @@ const Profile = ({ onSave }) => {
 
           {/* Mobile Number + Email */}
 
-          <div className='column'>
-            <div className='input-group'>
+          <div className={styles['column-p']}>
+            <div className={styles['input-group-p']}>
               <label>Mobile Number</label>
               <input
                 type='text'
@@ -89,7 +89,7 @@ const Profile = ({ onSave }) => {
               />
             </div>
 
-            <div className='input-group'>
+            <div className={styles['input-group-p']}>
               <label>Email</label>
               <input
                 type='email'
@@ -102,7 +102,7 @@ const Profile = ({ onSave }) => {
 
           {/* Customer Address (Text Area) */}
 
-          <div className='input-group'>
+          <div className={styles['input-group-p']}>
             <label>Customer Address</label>
             <textarea
               value={address}
@@ -113,12 +113,12 @@ const Profile = ({ onSave }) => {
 
           {/* Pet Name +Pet DOB */}
 
-          <div className='input-group'>
-            <label className='pet-details'>PET DETAILS</label>
+          <div className={styles['input-group-p']}>
+            <label className={styles['pet-details']}>PET DETAILS</label>
           </div>
 
-          <div className='column'>
-            <div className='input-group'>
+          <div className={styles['column-p']}>
+            <div className={styles['input-group-p']}>
               <label>Pet Name</label>
               <input
                 type='text'
@@ -128,7 +128,7 @@ const Profile = ({ onSave }) => {
               />
             </div>
 
-            <div className='input-group'>
+            <div className={styles['input-group-p']}>
               <label>Pet Date of Birth</label>
               <input
                 type='date'
@@ -141,7 +141,7 @@ const Profile = ({ onSave }) => {
 
             {/* Pet Type (Select Button) */}
 
-            <div className='input-group'>
+            <div className={styles['input-group-p']}>
               <label>Pet Type</label>
               {isEditMode ? (
                 <select
@@ -164,7 +164,7 @@ const Profile = ({ onSave }) => {
 
             {/* Amount */}
 
-            <div className='input-group'>
+            <div className={styles['input-group-p']}>
               <label>Amount Paid</label>
               <input
                 type='text'
@@ -176,10 +176,10 @@ const Profile = ({ onSave }) => {
 
             {/* Service Opted (Radio Button)  */}
 
-            <div className="service-box3">
+            <div className={styles["service-box3"]}>
               <h3>Service Opted</h3>
-              <div className="service-option3">
-                <div className="service3">
+              <div className={styles["service-option3"]}>
+                <div className={styles["service3"]}>
                   <input
                     type="radio"
                     id="check-daycare"
@@ -198,7 +198,7 @@ const Profile = ({ onSave }) => {
                     Day Care
                   </label>
                 </div>
-                <div className="service3">
+                <div className={styles["service3"]}>
                   <input
                     type="radio"
                     id="check-grooming"
@@ -217,7 +217,7 @@ const Profile = ({ onSave }) => {
                     Grooming
                   </label>
                 </div>
-                <div className="service3">
+                <div className={styles["service3"]}>
                   <input
                     type="radio"
                     id="check-walking"
@@ -241,11 +241,11 @@ const Profile = ({ onSave }) => {
 
           {/* Save and Edit (Button) */}
 
-          <div className='button-group'>
+          <div className={styles['button-group']}>
             {isEditMode ? (
-              <button type='button' className='save-button' onClick={handleSubmit}>Save</button>
+              <button type='button' className={styles['save-button']} onClick={handleSubmit}>Save</button>
             ) : (
-              <button type='button' className='edit-button' onClick={handleEdit}>Edit</button>
+              <button type='button' className={styles['edit-button']} onClick={handleEdit}>Edit</button>
             )}
           </div>
         </form>

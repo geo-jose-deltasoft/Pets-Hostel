@@ -27,8 +27,8 @@ const TopBar = () => {
   return (
     <nav className='topbar'>
       <div className="topbar-left">
-        <div className="hamburger-menu" onClick={toggleNav}>
-          &#9776;
+      <div className="hamburger-menu" onClick={toggleNav}>
+          <i className="fas fa-bars"></i>
         </div>
         <ul className={navOpen ? 'show' : ''}>
           <li><NavLink to="/" end activeClassName="active">Home</NavLink></li>

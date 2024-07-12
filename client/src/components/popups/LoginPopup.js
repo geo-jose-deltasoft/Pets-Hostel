@@ -82,13 +82,24 @@ const LoginPopup = ({ onClose }) => {
             onChange={e => setPassword(e.target.value)}
           />
 
-          <button className="forgot-password" onClick={handleForgotPassword}>Forgot Password?</button>
+          <button 
+            className="forgot-password" 
+            onClick={handleForgotPassword}
+          >
+            Forgot Password?
+          </button>
 
-          <button className="login-button" onClick={handleLogin}>Login</button>
+          <button 
+            className="login-button" 
+            onClick={handleLogin}
+          >
+            Login
+          </button>
 
           <button 
             className="signup-button" 
-            onClick={handleSignup}>
+            onClick={handleSignup}
+          >
             New user? Sign Up
           </button>
 
