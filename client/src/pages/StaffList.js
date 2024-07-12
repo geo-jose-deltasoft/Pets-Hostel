@@ -12,6 +12,7 @@ const StaffList = () => {
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [data, setData] = useState([]);
   const [notifications, setNotifications] = useState([]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     // Simulating API call with dummy data
@@ -41,6 +42,11 @@ const StaffList = () => {
     fetchData();
   }, []);
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    // You can add more logic here to handle menu items/actions
+  };
+
   const toggleNotificationDialog = () => {
     setIsNotificationOpen(!isNotificationOpen);
   };
@@ -68,17 +74,18 @@ const StaffList = () => {
   return (
     <div className='staff-list-container'>
       <div className='header-container'>
-        <h2>Customer Booking List</h2>
         <FontAwesomeIcon 
           icon={faBell} 
           className="header-icon" 
           onClick={toggleNotificationDialog} 
         />
+        <h2>Customer Booking List</h2>
         <div className="action-icons">
           <FontAwesomeIcon icon={faNoteSticky} onClick={handleAddNote} className="header-icon" />
         </div>
         <button className='create-booking-btn' onClick={() => navigate('/booking-form')}>Create Booking</button>
       </div>
+
       <div className='search-container'>
         <input
           type="text"

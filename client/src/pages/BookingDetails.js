@@ -135,15 +135,10 @@ const BookingDetails = () => {
     alert('Changes saved successfully!');
   };
 
-  const handleBack = () => {
-    navigate('/staff-list');
-  };
-
   return (
     <div className='body'>
       <section className='container'>
         <header className='container-header'>
-          <FaArrowLeft className='back-icon' onClick={handleBack} />
           Booking Details
         </header>
 
