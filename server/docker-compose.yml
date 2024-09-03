@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: petHostel-postgres
+    environment:
+      POSTGRES_DB: pethostel
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - '5432:5432'
+    volumes:
+      - ${POSTGRES_DATA_PATH}:/var/lib/postgresql/data
+    restart: always
+
+
+volumes:
+  postgres_data:
+  redis_data:
