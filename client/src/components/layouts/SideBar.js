@@ -10,6 +10,11 @@ const SideBar = () => {
   const handleLogout = () => {
     // Perform logout actions here.
     localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('user_name');
+    localStorage.removeItem('name');
+    localStorage.removeItem('email');
+    localStorage.removeItem('mobile_number');
 
     // Redirect to the home page
     window.location.href = '/';

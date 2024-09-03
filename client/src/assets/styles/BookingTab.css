@@ -25,9 +25,6 @@
 }
 
 .create-booking-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;

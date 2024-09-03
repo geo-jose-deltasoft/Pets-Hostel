@@ -83,7 +83,7 @@ const StaffList = () => {
         <div className="action-icons">
           <FontAwesomeIcon icon={faNoteSticky} onClick={handleAddNote} className="header-icon" />
         </div>
-        <button className='create-booking-btn' onClick={() => navigate('/booking-form')}>Create Booking</button>
+        <button className='create-booking-btn' onClick={() => navigate('/booking-form')}>Book Appointment</button>
       </div>
 
       <div className='search-container'>

@@ -3,46 +3,99 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { FaArrowLeft, FaCalendarAlt } from 'react-icons/fa';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import '../assets/styles/BookingDetails.css'; 
+import '../assets/styles/BookingDetails.css';
+import ApiRequest from '../ApiRequest';
+import { API_ROUTES } from '../Api';
 
 const BookingDetails = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const [data, setData] = useState(location.state?.data || null);
+  const [firstName, setFirstName] = useState(null);
+  const [lastName, setLastName] = useState(null);
+  const [mobileNumber, setMobileNumber] = useState(null);
+  const [dob, setDob] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [address, setAddress] = useState(null);
+  const [petName, setPetName] = useState(null);
+  const [petType, setPetType] = useState(null);
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [petBirthday, setPetBirthday] = useState(null);
+  const [petAge, setPetAge] = useState(null);
+  const [petFoodHabit, setPetFoodHabit] = useState(null);
+  const [vaccinationStatus, setVaccinationStatus] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [applicationDate, setApplicationDate] = useState(null);
+  const [contactMethod, setContactMethod] = useState(null);
+  const [serviceOpted, setServiceOpted] = useState(null);
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [id, setId] = useState(null);
+
   useEffect(() => {
     if (location.state && location.state.editable !== undefined) {
       setIsEditMode(location.state.editable);
     }
+    if (location.state?.id !== undefined) {
+      setId(location.state?.id)
+      getDetailsById();
+    }
   }, [location.state]);
 
-  const [firstName, setFirstName] = useState('John');
-  const [lastName, setLastName] = useState('Doe');
-  const [mobileNumber, setMobileNumber] = useState('123-456-7890');
-  const [dob, setDob] = useState(new Date('1990-01-01'));
-  const [email, setEmail] = useState('johndoe@example.com');
-  const [address, setAddress] = useState({
-    address1: '123 Street',
-    address2: 'Apt 101',
-    city: 'City',
-    state: 'State',
-    postalCode: '12345'
-  });
-  const [petName, setPetName] = useState('Max');
-  const [petType, setPetType] = useState('dog');
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
-  const [petBirthday, setPetBirthday] = useState(new Date());
-  const [petAge, setPetAge] = useState('5 years');
-  const [petFoodHabit, setPetFoodHabit] = useState('Likes dry food.');
-  const [vaccinationStatus, setVaccinationStatus] = useState(true);
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [applicationDate, setApplicationDate] = useState(new Date());
-  const [contactMethod, setContactMethod] = useState('Phone');
-  const [serviceOpted, setServiceOpted] = useState('Day Care');
-  const [isEditMode, setIsEditMode] = useState(false); 
+  const getDetailsById = async () => {
+    try {
+      const response = await ApiRequest(`${API_ROUTES.booking}/${location.state?.id}`);
+      console.log('Booking details fetched successfully');
+      if (response) {
+        setData(response)
+      }
+    } catch (error) {
+      console.error('Error fetching booking details:', error);
+    }
+  };
+
+  useEffect(() => {
+    if (data) {
+      setFirstName(data.owner_first_name);
+      setLastName(data.owner_last_name);
+      setMobileNumber(data.mobile_number);
+      setDob(data.DOB);
+      setEmail(data.email);
+      setAddress(data.address);
+      setPetName(data.pet_name);
+      setPetType(data.pet_type);
+      setStartDate(data.booking_date);
+      setEndDate(data.booking_date);
+      setPetBirthday(data.pet_birthday);
+      setPetAge(data.pet_age);
+      setPetFoodHabit(data.pet_food_habit);
+      setVaccinationStatus(data.pet_vaccination_status);
+      // setSelectedFile(data.selectedFile);
+      setApplicationDate(data.booking_date);
+      setContactMethod(data.preferred_method_of_contact);
+      setServiceOpted(data.service);
+    }
+  }, [data]);
+  useEffect(() => {
+    if (petBirthday) {
+      const age = calculateAge(petBirthday);
+      setPetAge(age);
+    }
+  }, [petBirthday]);
+
+  const calculateAge = (birthday) => {
+    const today = new Date();
+    const birthDate = new Date(birthday);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  };
 
   const handleEditField = (field, value) => {
-    setAddress({ ...address, [field]: value });
     switch (field) {
       case 'firstName':
         setFirstName(value);
@@ -55,6 +108,9 @@ const BookingDetails = () => {
         break;
       case 'dob':
         setDob(value);
+        break;
+      case 'address':
+        setAddress(value);
         break;
       case 'email':
         setEmail(value);
@@ -110,35 +166,79 @@ const BookingDetails = () => {
   };
 
   const handleReset = () => {
-    // Logic to reset fields to their default values
-    setFirstName('John');
-    setLastName('Doe');
-    setMobileNumber('123-456-7890');
-    setDob(new Date('1990-01-01'));
-    setEmail('johndoe@example.com');
-    setAddress('123 Street, Apt 101, City, State, 12345');
-    setPetName('Max');
-    setPetType('dog');
-    setStartDate(new Date());
-    setEndDate(new Date());
-    setPetBirthday(new Date());
-    setPetAge('5 years');
-    setPetFoodHabit('Likes dry food.');
-    setVaccinationStatus(true);
+    setFirstName(null);
+    setLastName(null);
+    setMobileNumber(null);
+    setDob(null);
+    setEmail(null);
+    setAddress(null);
+    setPetName(null);
+    setPetType(null);
+    setStartDate(null);
+    setEndDate(null);
+    setPetBirthday(null);
+    setPetAge(null);
+    setPetFoodHabit(null);
+    setVaccinationStatus(null);
     setSelectedFile(null);
-    setApplicationDate(new Date());
-    setContactMethod('Phone');
-    setServiceOpted('Day Care');
+    setApplicationDate(null);
+    setContactMethod(null);
+    setServiceOpted(null);
   };
 
-  const handleSave = () => {
-    alert('Changes saved successfully!');
+
+  const handleSave = async () => {
+    const data = {
+      owner_first_name: firstName,
+      owner_last_name: lastName,
+      mobile_number: mobileNumber,
+      DOB: dob,
+      address: address,
+      preferred_method_of_contact: contactMethod,
+      pet_name: petName,
+      pet_type: petType,
+      booking_date: applicationDate,
+      service: serviceOpted,
+      pet_birthday: petBirthday,
+      pet_age: petAge,
+      pet_food_habit: petFoodHabit,
+      pet_vaccination_status: vaccinationStatus,
+      pet_certificate: selectedFile ? selectedFile.name : '',
+      application_date: applicationDate,
+    };
+
+    try {
+      const response = await ApiRequest(`${API_ROUTES.booking}/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(data),
+      });
+      console.log(response);
+
+      if (!response) {
+        throw new Error('Failed to update booking');
+      }
+      console.log('Booking updated successfully');
+      navigate('/master-booking-list');
+    } catch (error) {
+      console.error('Error in update booking:', error);
+    }
+  };
+
+  const handleBack = () => {
+    if (location.state?.flow) {
+      navigate(location.state?.flow)
+    }
+    else {
+      navigate('/master-booking-list');
+
+    }
   };
 
   return (
     <div className='body'>
       <section className='container'>
         <header className='container-header'>
+          <FaArrowLeft className='back-icon' onClick={handleBack} />
           Booking Details
         </header>
 
@@ -166,7 +266,7 @@ const BookingDetails = () => {
           </div>
 
           {/* Mobile Number */}
-        
+
           <div className='input-box'>
             <label>Mobile Number</label>
             <input
@@ -179,15 +279,19 @@ const BookingDetails = () => {
           </div>
 
           {/* DOB*/}
-        
+
           <div className='input-box'>
             <label>Date of Birth</label>
-            <input
-              type='date'
-              placeholder='DOB'
-              value={dob.toLocaleDateString()}
-              readOnly={!isEditMode}
-            />
+            <div className='date-picker-container2'>
+              <FaCalendarAlt className='calendar-icon' />
+              <DatePicker
+                selected={dob}
+                onChange={(date) => handleEditField('dob', date)}
+                placeholderText='Select DOB'
+                className='date-picker-input2'
+                readOnly={!isEditMode}
+              />
+            </div>
           </div>
 
           {/* Email */}
@@ -199,7 +303,7 @@ const BookingDetails = () => {
               placeholder='example@example.com'
               value={email}
               onChange={(e) => handleEditField('email', e.target.value)}
-              readOnly={!isEditMode}
+              readOnly={true}
             />
           </div>
 
@@ -209,7 +313,7 @@ const BookingDetails = () => {
             <label>Address</label>
             <textarea
               placeholder='Street Address, Apt/Unit, City, State, Postal/Zip Code'
-              value={`${address.address1}, ${address.address2}, ${address.city}, ${address.state}, ${address.postalCode}`}
+              value={address}
               onChange={(e) => handleEditField('address', e.target.value)}
               readOnly={!isEditMode}
               className='textarea-input'
@@ -460,7 +564,7 @@ const BookingDetails = () => {
                   type="radio"
                   id="check-daycare"
                   name="service2"
-                  checked={serviceOpted === 'Day Care'}
+                  checked={serviceOpted === 'DayCare'}
                   onChange={() => setServiceOpted('Day Care')}
                   disabled={!isEditMode}
                 />
@@ -519,13 +623,13 @@ const BookingDetails = () => {
 
           {isEditMode && (
             <div className='button-group'>
-              <button
+              {/* <button
                 type='button'
                 className='reset-button'
                 onClick={handleReset}
               >
                 Reset
-              </button>
+              </button> */}
               <button
                 type='button'
                 className='save-button2'
