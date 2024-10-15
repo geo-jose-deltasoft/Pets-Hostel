@@ -8,12 +8,14 @@ const Home = () => {
   const isLogin = localStorage.getItem('token') == null ? false : true;
   const [loginPop, setLoginPop] = useState(false);
   const bookApp = () => {
-    if (isLogin) {
+    // if (isLogin) {
+    //   navigate('/booking-form');
+    // }
+    // else {
+    //   setLoginPop(true);
+    // }
       navigate('/booking-form');
-    }
-    else {
-      setLoginPop(true);
-    }
+
   }
   return (
     <div className='home'>

@@ -35,6 +35,7 @@ const BookingForm = () => {
   const [petType, setPetType] = useState('');
   const [service, setService] = useState('');
   const [petFoodHabit, setPetFoodHabit] = useState('');
+  const isLogin = localStorage.getItem('token') == null ? false : true;
 
   useEffect(() => {
     if (petBirthday) {
@@ -85,7 +86,7 @@ const BookingForm = () => {
       owner_last_name: ownerLastName,
       mobile_number: mobileNumber,
       DOB: dob,
-      email: localStorage.getItem('email') ,
+      email: localStorage.getItem('email') || email,
       address: `${address}, ${addressLine2}, ${city}, ${state}, ${postalCode}`,
       preferred_method_of_contact: contactMethod,
       pet_name: petName,
@@ -111,7 +112,13 @@ const BookingForm = () => {
         console.log("Response", response);
 
         if (response?.id) {
-          navigate('/booking-history');
+          if(isLogin){
+            navigate('/booking-history');
+          }
+          else{
+          navigate('/');
+
+          }
         } else {
           console.error(response?.message);
         }
@@ -126,7 +133,7 @@ const BookingForm = () => {
   };
 
   return (
-    <div style={{padding:'20px'}}>
+    <div style={{ padding: '20px' }}>
       <TopBar />
       <div className='body'>
         <section className='container'>
@@ -156,10 +163,10 @@ const BookingForm = () => {
               </div>
             </div>
 
-            {/* <div className='input-box'>
+            {!isLogin && <div className='input-box'>
               <label>Email</label>
               <input type='email' placeholder='example@example.com' value={email} onChange={(e) => setEmail(e.target.value)} required />
-            </div> */}
+            </div>}
 
             <div className='input-box'>
               <label>Address</label>
